@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kho Tư Liệu Video - Lễ Cấp Sắc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .video-container { padding: 8rem 0 5rem; display: flex; gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .main-player { flex: 2; }
+        .main-player video { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); background: #000; }
+        .main-title { margin-top: 1rem; color: var(--light); font-size: 1.5rem; }
+        .playlist { flex: 1; display: flex; flex-direction: column; gap: 1rem; max-height: 80vh; overflow-y: auto; padding-right: 10px; }
+        .playlist::-webkit-scrollbar { width: 8px; }
+        .playlist::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 4px; }
+        .video-item { display: flex; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; cursor: pointer; transition: background 0.3s; align-items: center; position: relative; height: 100px; }
+        .video-item:hover { background: rgba(255,255,255,0.1); }
+        .video-item.active { border: 2px solid var(--secondary); }
+        .video-item video { width: 150px; height: 100%; object-fit: cover; pointer-events: none; }
+        .play-icon { position: absolute; left: 60px; font-size: 24px; color: rgba(255,255,255,0.8); text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .back-btn { display: inline-block; color: var(--secondary); margin-bottom: 1rem; font-weight: 600; text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .video-container { flex-direction: column; padding: 6rem 1rem 2rem; }
+            .playlist { max-height: 400px; }
+            .video-item video { width: 120px; }
+            .play-icon { left: 45px; }
+        }
+    </style>
+</head>
+<body>
+    <header id="main-header" class="scrolled">
+        <nav class="container">
+            <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;"><h1>Tiếng Dao <span>Kết nối di sản</span></h1></a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="index.html#repository">Kho tư liệu</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="video-container">
+        <div class="main-player">
+            <a href="index.html#repository" class="back-btn">← Quay lại Kho Tư Liệu</a>
+            <video id="main-video" controls autoplay src="Video/Le cap sac/1567848762787777241.mp4"></video>
+            <h2 class="main-title">Nghi lễ Cấp sắc người Dao Ba Vì</h2>
+        </div>
+        <div class="playlist">
+            <div class="video-item" onclick="playVideo('Video/Le cap sac/1567848762787777241.mp4', this)">
+                <video src="Video/Le cap sac/1567848762787777241.mp4#t=1" preload="metadata"></video>
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="video-item" onclick="playVideo('Video/Le cap sac/4680228952926610551.mp4', this)">
+                <video src="Video/Le cap sac/4680228952926610551.mp4#t=1" preload="metadata"></video>
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="video-item" onclick="playVideo('Video/Le cap sac/4908791154959.mp4', this)">
+                <video src="Video/Le cap sac/4908791154959.mp4#t=1" preload="metadata"></video>
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="video-item" onclick="playVideo('Video/Le cap sac/4909085422009.mp4', this)">
+                <video src="Video/Le cap sac/4909085422009.mp4#t=1" preload="metadata"></video>
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="video-item" onclick="playVideo('Video/Le cap sac/4909085582665.mp4', this)">
+                <video src="Video/Le cap sac/4909085582665.mp4#t=1" preload="metadata"></video>
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="video-item" onclick="playVideo('Video/Le cap sac/4909087590857.mp4', this)">
+                <video src="Video/Le cap sac/4909087590857.mp4#t=1" preload="metadata"></video>
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="video-item" onclick="playVideo('Video/Le cap sac/4909090859288.mp4', this)">
+                <video src="Video/Le cap sac/4909090859288.mp4#t=1" preload="metadata"></video>
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="video-item" onclick="playVideo('Video/Le cap sac/4909091049533.mp4', this)">
+                <video src="Video/Le cap sac/4909091049533.mp4#t=1" preload="metadata"></video>
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="video-item" onclick="playVideo('Video/Le cap sac/4909125326417.mp4', this)">
+                <video src="Video/Le cap sac/4909125326417.mp4#t=1" preload="metadata"></video>
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="video-item" onclick="playVideo('Video/Le cap sac/8987579385892048970.mp4', this)">
+                <video src="Video/Le cap sac/8987579385892048970.mp4#t=1" preload="metadata"></video>
+                <div class="play-icon">▶</div>
+            </div>
+        </div>
+    </main>
+    <script>
+        function playVideo(src, element) {
+            const mainVideo = document.getElementById('main-video');
+            mainVideo.src = src;
+            mainVideo.play();
+            
+            document.querySelectorAll('.video-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+        }
+        
+        // Set active for first video on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstItem = document.querySelector('.video-item');
+            if(firstItem) firstItem.classList.add('active');
+        });
+    </script>
+    <script src="translate.js"></script>
+</body>
+</html>

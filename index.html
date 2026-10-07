@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiếng Dao – Kết Nối Di Sản | Dự án Số Hóa & Trao Truyền Văn Hóa Dao Ba Vì</title>
+    <meta name="description" content="Website Tiếng Dao – Kết nối di sản: Bảo tồn tiếng nói mẹ đẻ, lưu giữ tri thức bản địa và kết nối các thế hệ người Dao Quần Chẹt tại Ba Vì.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================================================
+         HEADER & NAVIGATION
+         ============================================================ -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="#home">
+                    <div class="logo-badge">🌿</div>
+                    <div>
+                        <h1>Tiếng Dao</h1>
+                        <span>Kết nối di sản</span>
+                    </div>
+                </a>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Trang chủ</a></li>
+                <li><a href="#about" class="nav-link">Về dự án</a></li>
+                <li><a href="#repository" class="nav-link">Kho tư liệu</a></li>
+                <li><a href="#family" class="nav-link">Tiếng Dao gia đình</a></li>
+                <li><a href="#keepers" class="nav-link">Người giữ tri thức</a></li>
+                <li><a href="#experience" class="nav-link">Góc trải nghiệm</a></li>
+                <li><a href="#map" class="nav-link">Bản đồ</a></li>
+                <li><a href="#qr" class="nav-link">Mã QR</a></li>
+                <li><a href="#media" class="nav-link">Thư viện</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#contribute" class="btn-cta">Đóng góp tư liệu</a>
+                <div class="lang-switcher">
+                    <a id="lang-vn" class="lang-btn active">VN</a>
+                    <a id="lang-en" class="lang-btn">EN</a>
+                </div>
+                <button class="mobile-toggle" aria-label="Toggle Menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ============================================================
+             1. TRANG CHỦ (HERO & SƠ ĐỒ MÔ HÌNH)
+             ============================================================ -->
+        <section id="home" class="hero-section">
+            <div class="slideshow-container">
+                <div class="hero-slide active" style="background-image: url('IMG/Người dao/hanoimoi.com.vn-uploads-images-phananh-2020-01-21-_tet-nhay-nguoi-dao.jpg')"></div>
+                <div class="hero-slide" style="background-image: url('IMG/Lễ cấp sắc/z4908789723746_f074a9c0dcc9478008551d8f4287a360.jpg')"></div>
+                <div class="hero-slide" style="background-image: url('IMG/Người dao/lang-nghe-thuoc-nam-nguoi-dao-ba-vi-1707-1-1616.jpg')"></div>
+                <div class="hero-slide" style="background-image: url('IMG/Người dao/15.jpeg')"></div>
+            </div>
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-content">
+                <div class="hero-tagline">
+                    <span>✨ Dự án Nghiên cứu & Số hóa Văn hóa Bản địa Ba Vì</span>
+                </div>
+                <h1>Tiếng Dao – Kết Nối Di Sản</h1>
+                <p>Nền tảng số hóa gìn giữ tiếng nói mẹ đẻ, tôn vinh tri thức dân gian và trao truyền di sản văn hóa người Dao Quần Chẹt tại vùng núi Ba Vì qua các thế hệ.</p>
+                
+                <div class="hero-btns">
+                    <a href="#repository" class="btn btn-primary">📖 Khám phá Kho Tư Liệu Số</a>
+                    <a href="#family" class="btn btn-secondary">👨‍👩‍👧‍👦 Tiếng Dao Trong Gia Đình</a>
+                </div>
+
+                <!-- Sơ đồ quy trình trao truyền 4T -->
+                <div class="transmission-diagram">
+                    <div class="diagram-header">
+                        <h4>Mô Hình Trao Truyền Di Sản Liên Thế Hệ</h4>
+                    </div>
+                    <div class="diagram-steps">
+                        <div class="diagram-step">
+                            <div class="step-icon">🗣️</div>
+                            <div class="step-title">Tiếng Dao</div>
+                            <div class="step-subtitle">Ngôn ngữ cội nguồn & giao tiếp thường nhật</div>
+                            <div class="diagram-arrow">➔</div>
+                        </div>
+                        <div class="diagram-step">
+                            <div class="step-icon">🤝</div>
+                            <div class="step-title">Kết Nối Thế Hệ</div>
+                            <div class="step-subtitle">Đối thoại ông bà - cha mẹ - con cháu</div>
+                            <div class="diagram-arrow">➔</div>
+                        </div>
+                        <div class="diagram-step">
+                            <div class="step-icon">💡</div>
+                            <div class="step-title">Tiếp Nhận Tri Thức</div>
+                            <div class="step-subtitle">Học hỏi phong tục, y học thuốc nam & đạo lý</div>
+                            <div class="diagram-arrow">➔</div>
+                        </div>
+                        <div class="diagram-step">
+                            <div class="step-icon">🏛️</div>
+                            <div class="step-title">Truyền Thừa Di Sản</div>
+                            <div class="step-subtitle">Bảo tồn sống động trong đời sống hiện đại</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             2. VỀ DỰ ÁN
+             ============================================================ -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Giới thiệu tổng quan</span>
+                    <h2>Về Dự Án "Tiếng Dao – Kết Nối Di Sản"</h2>
+                    <p>Hành trình khoa học và cộng đồng nhằm bảo vệ sự đa dạng ngôn ngữ, văn hóa của đồng bào dân tộc thiểu số trong kỷ nguyên chuyển đổi số.</p>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Lý do xây dựng website -->
+                    <div class="about-card glass-card">
+                        <div class="about-icon">🎯</div>
+                        <h3>1. Lý Do Xây Dựng Website</h3>
+                        <p>Trong bối cảnh hội nhập, thế hệ trẻ người Dao Quần Chẹt tại Ba Vì đang đứng trước nguy cơ mai một tiếng mẹ đẻ và suy giảm khả năng thực hành các phong tục truyền thống. Khoảng cách giao tiếp giữa thế hệ ông bà và con cháu ngày càng nới rộng.</p>
+                        <p>Website được hình thành như một không gian học tập mở, ứng dụng công nghệ thông tin để số hóa tri thức, tạo động lực cho thanh thiếu niên tự hào và chủ động thực hành tiếng Dao ngay trong gia đình.</p>
+                        <ul class="about-highlights">
+                            <li>Bảo tồn ngôn ngữ thiểu số trước nguy cơ biến mất.</li>
+                            <li>Xây dựng cầu nối giao tiếp gắn kết gia đình đa thế hệ.</li>
+                            <li>Đưa di sản văn hóa Ba Vì tiếp cận công chúng qua nền tảng số.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Đối tượng và phạm vi nghiên cứu -->
+                    <div class="about-card glass-card">
+                        <div class="about-icon">📍</div>
+                        <h3>2. Đối Tượng & Phạm Vi Nghiên Cứu</h3>
+                        <p><strong>Đối tượng nghiên cứu:</strong> Ngôn ngữ Dao Quần Chẹt, hệ thống tri thức dân gian (y học thuốc nam, chữ Nôm Dao, phong tục tập quán) và Lễ Cấp sắc dưới góc nhìn giáo dục di sản liên thế hệ.</p>
+                        <p><strong>Phạm vi không gian:</strong> Cộng đồng người Dao tại xã Ba Vì (các thôn Yên Sơn, Hợp Nhất, Hợp Sơn), huyện Ba Vì, TP. Hà Nội.</p>
+                        <ul class="about-highlights">
+                            <li>Nhóm đối tượng tiếp nhận: Học sinh, thanh thiếu niên dân tộc Dao.</li>
+                            <li>Nhóm trao truyền: Người cao tuổi, nghệ nhân, già làng, thầy cúng và lương y thuốc nam.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Kết quả chính của nghiên cứu -->
+                    <div class="about-card glass-card">
+                        <div class="about-icon">📊</div>
+                        <h3>3. Kết Quả Chính Của Nghiên Cứu</h3>
+                        <p>Dự án đã tiến hành điều tra thực địa, khảo sát năng lực ngôn ngữ của học sinh và thu thập kho tư liệu phong phú từ các già làng, nghệ nhân uy tín:</p>
+                        <ul class="about-highlights">
+                            <li>Số hóa hơn 100+ từ vựng & mẫu câu hội thoại thường nhật có phiên âm chuẩn.</li>
+                            <li>Ghi hình và tư liệu hóa chi tiết 5 bước chuẩn hóa của Đại lễ Cấp sắc người Dao.</li>
+                            <li>Xây dựng bộ câu chuyện ký ức văn hóa và tài liệu hướng dẫn giao tiếp trong gia đình.</li>
+                            <li>Xây dựng bản đồ phân bố các không gian văn hóa cộng đồng xã Ba Vì.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Mục tiêu mô hình giải pháp -->
+                    <div class="about-card glass-card">
+                        <div class="about-icon">🚀</div>
+                        <h3>4. Mục Tiêu Của Mô Hình Giải Pháp</h3>
+                        <p>Hiện thực hóa mô hình <strong>3T (Tiếng – Truyền – Trải nghiệm)</strong> thành một giải pháp giáo dục di sản toàn diện, kết hợp chặt chẽ giữa Gia đình - Nhà trường - Xã hội:</p>
+                        <ul class="about-highlights">
+                            <li><strong>T1 - Tiếng:</strong> Khôi phục thói quen nói tiếng Dao trong bữa ăn và sinh hoạt gia đình.</li>
+                            <li><strong>T2 - Truyền:</strong> Tôn vinh và phát huy vai trò truyền dạy của các bậc cao niên.</li>
+                            <li><strong>T3 - Trải nghiệm:</strong> Khuyến khích học sinh ghi chép nhật ký, tham gia hoạt động văn hóa thực địa.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             3. KHO TƯ LIỆU SỐ
+             ============================================================ -->
+        <section id="repository" class="section" style="background: rgba(0,0,0,0.2);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Dữ liệu di sản mở</span>
+                    <h2>Kho Tư Liệu Số Hóa</h2>
+                    <p>Hệ thống tư liệu ngôn ngữ, phong tục và câu chuyện văn hóa người Dao Quần Chẹt đã được cộng đồng thẩm định và cho phép chia sẻ công khai.</p>
+                </div>
+
+                <!-- Tabs phân hệ -->
+                <div class="repo-tabs">
+                    <button class="tab-btn active" data-tab="tab-tieng-dao">🗣️ 3.1. Tiếng Dao</button>
+                    <button class="tab-btn" data-tab="tab-cap-sac">📜 3.2. Lễ Cấp Sắc</button>
+                    <button class="tab-btn" data-tab="tab-cau-chuyen">📖 3.3. Câu Chuyện Văn Hóa</button>
+                </div>
+
+                <!-- TAB 3.1: TIẾNG DAO -->
+                <div id="tab-tieng-dao" class="tab-content active">
+                    <div class="search-filter-bar">
+                        <div class="search-input-wrap">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" id="vocab-search" placeholder="Tìm kiếm từ vựng, phiên âm hoặc nghĩa tiếng Việt...">
+                        </div>
+                        <div class="filter-categories">
+                            <button class="filter-chip active" data-category="all">Tất cả</button>
+                            <button class="filter-chip" data-category="gia-dinh">Gia đình & Xưng hô</button>
+                            <button class="filter-chip" data-category="chao-hoi">Chào hỏi</button>
+                            <button class="filter-chip" data-category="phong-tuc">Phong tục & Văn hóa</button>
+                            <button class="filter-chip" data-category="cay-thuoc">Cây thuốc nam</button>
+                            <button class="filter-chip" data-category="so-dem">Số đếm</button>
+                        </div>
+                    </div>
+
+                    <div id="vocab-grid" class="vocab-grid">
+                        <!-- JS injects cards dynamically -->
+                    </div>
+                </div>
+
+                <!-- TAB 3.2: LỄ CẤP SẮC -->
+                <div id="tab-cap-sac" class="tab-content">
+                    <div class="cap-sac-overview">
+                        <div class="cap-sac-text">
+                            <h3>Lễ Cấp Sắc (Quá Tăng) – Sự Trưởng Thành Tâm Linh</h3>
+                            <p>Lễ Cấp sắc là một trong những nghi lễ độc đáo, thiêng liêng và quan trọng nhất trong cuộc đời của người đàn ông Dao Quần Chẹt. Đối với cộng đồng, một người đàn ông dù ở độ tuổi nào, nếu chưa trải qua lễ cấp sắc thì vẫn bị coi là chưa có "danh phận" tâm linh và chưa đủ tư cách đảm đương các trọng trách dòng họ.</p>
+                            <p>Nghi lễ không chỉ mang tính tín ngưỡng công nhận người thụ lễ là con cháu của thủy tổ Bàn Vương, mà còn mang tính <strong>giáo dục sâu sắc về 10 điều răn đạo đức</strong>: hiếu thảo với cha mẹ, thủy chung với vợ chồng, không tham lam trộm cắp và luôn sẵn lòng giúp đỡ bản làng.</p>
+                            <div class="resource-buttons" style="margin-top: 1.5rem;">
+                                <a href="video-le-cap-sac.html" class="btn btn-primary">🎥 Xem Kho Video Tư Liệu Đầy Đủ</a>
+                                <a href="anh-le-cap-sac.html" class="btn btn-secondary">📸 Bộ Sưu Tập Ảnh Lễ Cấp Sắc</a>
+                            </div>
+                        </div>
+                        <div class="cap-sac-media">
+                            <img src="IMG/Lễ cấp sắc/z4908789738199_f4677f73160a239b5e2aa1207beb966d.jpg" alt="Đại Lễ Cấp Sắc Dao Quần Chẹt">
+                        </div>
+                    </div>
+
+                    <h4 style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1.5rem; text-align: center;">5 Bước Hành Lễ Chuẩn Được Cộng Đồng Cho Phép Công Khai</h4>
+
+                    <div class="ritual-timeline">
+                        <!-- Bước 1 -->
+                        <div class="ritual-step-item">
+                            <div class="ritual-step-info">
+                                <h4>Bước 1: Lễ Nhập Điện (Trình Báo Tổ Tiên)</h4>
+                                <p>Thầy Cúng cả lập bàn thờ điện gian giữa, dâng sớ bằng chữ Nôm Dao xin phép Thủy tổ Bàn Vương và tổ tiên chứng giám, bảo bọc cho người thụ lễ trong suốt kỳ đại lễ.</p>
+                            </div>
+                            <div class="ritual-video-wrap">
+                                <video controls preload="metadata">
+                                    <source src="Video/Video bai viet/Bước 1.mp4" type="video/mp4">
+                                    Trình duyệt không hỗ trợ video.
+                                </video>
+                            </div>
+                        </div>
+
+                        <!-- Bước 2 -->
+                        <div class="ritual-step-item reverse">
+                            <div class="ritual-video-wrap">
+                                <video controls preload="metadata">
+                                    <source src="Video/Video bai viet/Bước 2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="ritual-step-info">
+                                <h4>Bước 2: Nghi Lễ Soi Đèn (Ban Năng Lực & Khai Sáng)</h4>
+                                <p>Thầy cúng thắp các ngọn nến thiêng đưa lên trán và hai vai người thụ lễ, tượng trưng cho việc khai sáng tâm trí, soi rọi trí tuệ và ban âm binh bảo vệ người đàn ông.</p>
+                            </div>
+                        </div>
+
+                        <!-- Bước 3 -->
+                        <div class="ritual-step-item">
+                            <div class="ritual-step-info">
+                                <h4>Bước 3: Đọc Lời Răn Dạy & Thề Nguyện</h4>
+                                <p>Người thụ lễ quỳ trước bàn thờ, lắng nghe thầy cúng tuyên đọc bản 10 điều răn đạo đức của người Dao và hô vang lời thề giữ trọn danh dự, đạo lý làm người.</p>
+                            </div>
+                            <div class="ritual-video-wrap">
+                                <video controls preload="metadata">
+                                    <source src="Video/Video bai viet/Bước 3.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                        <!-- Bước 4 -->
+                        <div class="ritual-step-item reverse">
+                            <div class="ritual-video-wrap">
+                                <video controls preload="metadata">
+                                    <source src="Video/Video bai viet/Bước 4.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="ritual-step-info">
+                                <h4>Bước 4: Nghi Thức Hạ Đài (Thử Thách Bản Lĩnh)</h4>
+                                <p>Người thụ lễ leo lên chiếc đài cao từ 2-3 mét và thả lỏng rơi tự do xuống chiếc võng lớn do thanh niên căng sẵn, biểu trưng cho sự tái sinh thành người đàn ông dũng cảm.</p>
+                            </div>
+                        </div>
+
+                        <!-- Bước 5 -->
+                        <div class="ritual-step-item">
+                            <div class="ritual-step-info">
+                                <h4>Bước 5: Trao Sắc Phong & Đặt Pháp Danh</h4>
+                                <p>Thầy cúng trao bản sắc phong ghi pháp danh (tên âm), chính thức công nhận người thụ lễ có đủ quyền năng thờ cúng tổ tiên và tham gia việc họ tộc.</p>
+                            </div>
+                            <div class="ritual-video-wrap">
+                                <video controls preload="metadata">
+                                    <source src="Video/Video bai viet/Bước 5.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3.3: CÂU CHUYỆN VĂN HÓA -->
+                <div id="tab-cau-chuyen" class="tab-content">
+                    <div class="stories-grid">
+                        <div class="story-card">
+                            <img src="IMG/Người dao/hanoimoi.com.vn-uploads-images-phananh-2020-01-21-_tet-nhay-nguoi-dao.jpg" alt="Lễ Tết Nhảy" class="story-img">
+                            <div class="story-body">
+                                <div class="story-meta">
+                                    <span>👤 Nghệ nhân Dương Trung Kim</span>
+                                    <span>📅 Năm 2026</span>
+                                </div>
+                                <h4>Ký Ức Tết Nhảy "Nhiang Chàm Đao" Rộn Rã</h4>
+                                <p>Tết Nhảy là dịp tạ ơn Bàn Vương và cầu chúc bản làng bình an. Điệu múa kiếm, múa rùa và tiếng chuông reo rộn ràng giữa tiết xuân Ba Vì đã in sâu vào tâm khảm người già qua bao mùa nương rẫy.</p>
+                                <div class="story-audio-box">
+                                    <span style="font-size: 0.85rem; color: #cbd5e1;">🎧 Ghi âm lời kể (Trích đoạn)</span>
+                                    <button class="vocab-audio-btn" onclick="alert('Đang phát bản ghi âm trích đoạn ký ức Tết Nhảy!')">▶️</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="story-card">
+                            <img src="IMG/Người dao/lang-nghe-thuoc-nam-nguoi-dao-ba-vi-1707-1-1616.jpg" alt="Thuốc nam người Dao" class="story-img">
+                            <div class="story-body">
+                                <div class="story-meta">
+                                    <span>👤 Lương y Triệu Thị Hòa</span>
+                                    <span>📅 Thôn Yên Sơn</span>
+                                </div>
+                                <h4>Bí Truyền Cây Thuốc Tắm Nuôi Dưỡng Sự Sống</h4>
+                                <p>Bà Hòa kể về những ngày theo chân mẹ lên đỉnh Vua hái lá thảo dược. Người Dao có quy tắc thiêng: hái lá không làm chết cây, lấy củ phải chừa lại mầm non để rừng ngàn mãi xanh tươi.</p>
+                                <div class="story-audio-box">
+                                    <span style="font-size: 0.85rem; color: #cbd5e1;">🎧 Lời dặn dò của người giữ thuốc</span>
+                                    <button class="vocab-audio-btn" onclick="alert('Đang phát ghi âm chia sẻ về tri thức bảo vệ rừng thuốc!')">▶️</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="story-card">
+                            <img src="IMG/Người dao/15.jpeg" alt="Trang phục Dao Quần Chẹt" class="story-img">
+                            <div class="story-body">
+                                <div class="story-meta">
+                                    <span>👤 Nghệ nhân Triệu Thị Lan</span>
+                                    <span>📅 Nghề thêu thủ công</span>
+                                </div>
+                                <h4>Hồn Cốt Dân Tộc Trong Từng Mũi Chỉ Thêu</h4>
+                                <p>Họa tiết hoa văn hình cây thông, dấu chân hổ, hoa tám cánh trên tà áo chàm không chỉ làm đẹp mà còn là cuốn sách ghi lại lịch sử thiên di của tổ tiên người Dao Quần Chẹt.</p>
+                                <div class="story-audio-box">
+                                    <span style="font-size: 0.85rem; color: #cbd5e1;">🎧 Câu chuyện hoa văn cổ truyền</span>
+                                    <button class="vocab-audio-btn" onclick="alert('Đang phát câu chuyện ý nghĩa hoa văn thổ cẩm!')">▶️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             4. TIẾNG DAO TRONG GIA ĐÌNH (T1 - TIẾNG)
+             ============================================================ -->
+        <section id="family" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Gắn với T1 – Tiếng trong mô hình</span>
+                    <h2>Tiếng Dao Trong Gia Đình</h2>
+                    <p>Khôi phục không gian thực hành ngôn ngữ cội nguồn thông qua giao tiếp thường nhật giữa ông bà, cha mẹ và con cháu.</p>
+                </div>
+
+                <div class="family-container">
+                    <!-- Mẫu đối thoại sinh động -->
+                    <div class="glass-card">
+                        <h3 style="font-size: 1.35rem; color: var(--secondary); margin-bottom: 1.2rem;">Mẫu Hội Thoại Giao Tiếp Hằng Ngày</h3>
+                        
+                        <div class="dialogue-box">
+                            <div class="chat-bubble grandchild">
+                                <div class="chat-sender">Cháu gái (Cháo nẩy)</div>
+                                <div class="chat-dao">Ong ba muong sin tzu bu?</div>
+                                <div class="chat-vn">Ông bà có khỏe không ạ?</div>
+                            </div>
+
+                            <div class="chat-bubble grandparent">
+                                <div class="chat-sender">Ông nội (Ong nại)</div>
+                                <div class="chat-dao">Ong ba sin tzu tò, cháo muong diêu tzu mai?</div>
+                                <div class="chat-vn">Ông bà khỏe lắm, cháu đã ăn cơm chưa?</div>
+                            </div>
+
+                            <div class="chat-bubble grandchild">
+                                <div class="chat-sender">Cháu gái (Cháo nẩy)</div>
+                                <div class="chat-dao">Cháo diêu lo, ong kề cẩu pèng vương pua cháo thia?</div>
+                                <div class="chat-vn">Cháu ăn rồi ạ, ông kể chuyện Bàn Vương cho cháu nghe nhé?</div>
+                            </div>
+
+                            <div class="chat-bubble grandparent">
+                                <div class="chat-sender">Ông nội (Ong nại)</div>
+                                <div class="chat-dao">Tò lo, cháo thảy pua ong kề cẩu nhé!</div>
+                                <div class="chat-vn">Được rồi, cháu ngồi đây ông kể cho nghe nhé!</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gợi ý hoạt động thực hành cùng gia đình -->
+                    <div class="activity-guide-card">
+                        <h3 style="font-size: 1.35rem; color: var(--secondary); margin-bottom: 1rem;">Gợi Ý Hoạt Động: "Hỏi Chuyện Ông Bà Về Lễ Cấp Sắc"</h3>
+                        <p style="font-size: 0.92rem; color: #cbd5e1;">Hướng dẫn học sinh thực hiện buổi phỏng vấn ấm cúng cùng ông bà trong gia đình:</p>
+
+                        <div class="guide-step-box">
+                            <div class="guide-step">
+                                <h5>🔑 1. Từ Khóa Tiếng Dao Cốt Lõi:</h5>
+                                <p><strong>Qúa tăng</strong> [Quá tăng] ➔ Lễ Cấp sắc | <strong>Pèng Vương</strong> [Bàn Vương] ➔ Thủy tổ | <strong>Sớ</strong> ➔ Sắc phong</p>
+                            </div>
+
+                            <div class="guide-step">
+                                <h5>💬 2. Gợi Ý Mẫu Câu Hỏi Phỏng Vấn:</h5>
+                                <p><em>"Thưa ông, ngày xưa ông làm Lễ Cấp sắc năm bao nhiêu tuổi ạ?"</em></p>
+                                <p><em>"Trong 10 điều răn, điều nào ông dặn con cháu phải ghi nhớ sâu sắc nhất?"</em></p>
+                            </div>
+
+                            <div class="guide-step">
+                                <h5>📝 3. Hoạt Động Tiếp Nối:</h5>
+                                <p>Ghi âm lại lời chia sẻ của ông bà, chụp một bức ảnh kỷ niệm và đăng tải vào <strong>Góc Trải Nghiệm</strong> bên dưới để lưu giữ di sản cho lớp học và cộng đồng.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             5. NGƯỜI GIỮ TRI THỨC (T2 - TRUYỀN)
+             ============================================================ -->
+        <section id="keepers" class="section" style="background: rgba(0,0,0,0.25);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Gắn với T2 – Truyền trong mô hình</span>
+                    <h2>Người Giữ Tri Thức Bản Địa</h2>
+                    <p>Tôn vinh các nghệ nhân, già làng và lương y tiêu biểu – những "bảo tàng sống" đang ngày đêm trao truyền di sản cho thế hệ tương lai.</p>
+                </div>
+
+                <div class="keepers-grid">
+                    <!-- Hồ sơ 1 -->
+                    <div class="keeper-card">
+                        <img src="IMG/Người dao/hanoimoi.com.vn-uploads-images-phananh-2020-01-21-_tet-nhay-nguoi-dao.jpg" alt="Nghệ nhân Dương Trung Kim" class="keeper-avatar">
+                        <h4>Dương Trung Kim</h4>
+                        <div class="keeper-role">Nghệ nhân Dân gian & Già Làng Uy Tín</div>
+                        <p class="keeper-bio">Hơn 50 năm am hiểu phong tục cổ truyền, người nắm giữ các bài cúng cổ chữ Nôm Dao và nghệ thuật múa chuông, múa kiếm trong đại lễ của người Dao.</p>
+                        <div class="keeper-topics">
+                            <span class="topic-tag">Nghi lễ Cấp sắc</span>
+                            <span class="topic-tag">Chữ Nôm Dao</span>
+                            <span class="topic-tag">Múa chuông</span>
+                        </div>
+                    </div>
+
+                    <!-- Hồ sơ 2 -->
+                    <div class="keeper-card">
+                        <img src="IMG/Người dao/lang-nghe-thuoc-nam-nguoi-dao-ba-vi-1707-1-1616.jpg" alt="Lương y Triệu Thị Hòa" class="keeper-avatar">
+                        <h4>Triệu Thị Hòa</h4>
+                        <div class="keeper-role">Lương Y Thảo Dược Nam Bản Địa (Thôn Yên Sơn)</div>
+                        <p class="keeper-bio">Người nắm giữ tri thức nhận biết và phối chế hàng trăm loài cây thuốc nam quý dưới tán rừng Ba Vì, tận tình hướng dẫn con cháu học nghề hái lá.</p>
+                        <div class="keeper-topics">
+                            <span class="topic-tag">Thuốc nam cổ truyền</span>
+                            <span class="topic-tag">Bảo tồn rừng</span>
+                            <span class="topic-tag">Thuốc tắm thảo dược</span>
+                        </div>
+                    </div>
+
+                    <!-- Hồ sơ 3 -->
+                    <div class="keeper-card">
+                        <img src="IMG/Người dao/15.jpeg" alt="Nghệ nhân Triệu Thị Lan" class="keeper-avatar">
+                        <h4>Triệu Thị Lan</h4>
+                        <div class="keeper-role">Nghệ Nhân Dệt Chàm & Thêu Hoa Văn Thổ Cẩm</div>
+                        <p class="keeper-bio">Người truyền lửa nghề thêu tay truyền thống cho các em học sinh nữ trong bản, lưu giữ kỹ thuật nhuộm chàm cổ và các hoa văn mang ý nghĩa lịch sử.</p>
+                        <div class="keeper-topics">
+                            <span class="topic-tag">Thêu thổ cẩm</span>
+                            <span class="topic-tag">Nhuộm chàm</span>
+                            <span class="topic-tag">Trang phục Dao Quần Chẹt</span>
+                        </div>
+                    </div>
+
+                    <!-- Hồ sơ 4 -->
+                    <div class="keeper-card">
+                        <img src="IMG/Người dao/nhipsonghanoi.hanoimoi.com.vn-uploads-images-nguyenmai-2023-04-09-_cap-sac-4-.jpg" alt="Ông Lý Văn Hưng" class="keeper-avatar">
+                        <h4>Lý Văn Hưng</h4>
+                        <div class="keeper-role">Người Am Hiểu Phong Tục & Lịch Sử Bản Làng</div>
+                        <p class="keeper-bio">Tích cực tham gia các buổi sinh hoạt ngoại khóa của trường học, trực tiếp hướng dẫn thanh niên học nói tiếng mẹ đẻ và gìn giữ gia phong.</p>
+                        <div class="keeper-topics">
+                            <span class="topic-tag">Tiếng Dao giao tiếp</span>
+                            <span class="topic-tag">Gia phong dòng tộc</span>
+                            <span class="topic-tag">Truyền thuyết dân gian</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ethics-notice">
+                    🛡️ <strong>Nguyên tắc đạo đức di sản:</strong> Nhóm nghiên cứu chỉ công khai thông tin cá nhân và tri thức văn hóa khi đã được người cung cấp và cộng đồng dân tộc Dao tại Ba Vì đồng thuận cho phép chia sẻ vì mục đích giáo dục phi lợi nhuận.
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             6. GÓC TRẢI NGHIỆM (T3 - TRẢI NGHIỆM)
+             ============================================================ -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="experience-header-actions">
+                    <div>
+                        <span class="section-badge">Gắn với T3 – Trải nghiệm</span>
+                        <h2 style="font-size: 2.2rem;">Góc Trải Nghiệm Học Sinh</h2>
+                        <p style="color: var(--muted);">Những trang nhật ký học tập, thu hoạch thực địa và câu chuyện học tiếng Dao từ ông bà.</p>
+                    </div>
+                    <button class="btn btn-primary" id="open-journal-modal">✍️ Tạo Nhật Ký Trải Nghiệm</button>
+                </div>
+
+                <div id="journal-grid" class="journal-grid">
+                    <!-- JS renders entries from /api/nhat-ky -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Tạo nhật ký trải nghiệm -->
+        <div id="journal-modal" class="modal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-container">
+                <span class="modal-close" id="close-journal-modal">&times;</span>
+                <h3 style="font-size: 1.6rem; color: var(--secondary); margin-bottom: 0.5rem;">Tạo Nhật Ký Trải Nghiệm</h3>
+                <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Chia sẻ lại bài học, từ vựng hoặc câu chuyện bạn vừa học được từ ông bà / người lớn tuổi.</p>
+
+                <form id="journal-form">
+                    <div class="form-group">
+                        <label for="jn-author">Họ tên & Lớp học của bạn *</label>
+                        <input type="text" id="jn-author" class="form-control" placeholder="VD: Nguyễn Văn An - Lớp 10A1, THPT Ba Vì" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jn-date">Ngày tham gia trải nghiệm *</label>
+                        <input type="date" id="jn-date" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jn-activity">Tên hoạt động tìm hiểu văn hóa *</label>
+                        <input type="text" id="jn-activity" class="form-control" placeholder="VD: Học phân biệt các cây thuốc nam chữa đau nhức" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jn-sharer">Người chia sẻ / Người hướng dẫn *</label>
+                        <input type="text" id="jn-sharer" class="form-control" placeholder="VD: Bà nội Lý Thị Mai (Thôn Yên Sơn)" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jn-learned">Điều em đã học được (Từ vựng, bài học, kỷ niệm) *</label>
+                        <textarea id="jn-learned" class="form-control" placeholder="Viết tóm tắt những điều ý nghĩa em đã học được..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="journal-img-input">Ảnh minh chứng hoạt động (Tùy chọn)</label>
+                        <input type="file" id="journal-img-input" accept="image/*" class="form-control">
+                        <div id="journal-img-preview"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Lưu Nhật Ký Trải Nghiệm</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             7. BẢN ĐỒ DI SẢN
+             ============================================================ -->
+        <section id="map" class="section" style="background: rgba(0,0,0,0.2);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Bản đồ số tương tác</span>
+                    <h2>Bản Đồ Di Sản Xã Ba Vì</h2>
+                    <p>Khám phá các không gian sinh hoạt cộng đồng, làng nghề thuốc nam, địa điểm truyền dạy và điểm trải nghiệm thực tế của người Dao Quần Chẹt.</p>
+                </div>
+
+                <div class="map-layout">
+                    <div class="map-sidebar">
+                        <h4 style="font-size: 1.15rem; color: var(--secondary); margin-bottom: 0.5rem;">Danh Sách Điểm Di Sản</h4>
+                        <p style="font-size: 0.82rem; color: var(--muted);">Bấm vào từng điểm để định vị trên bản đồ:</p>
+
+                        <ul class="map-location-list">
+                            <li class="map-location-item active" data-spot="yen-son">
+                                <h5>🏡 Thôn Yên Sơn (Làng Thuốc Nam)</h5>
+                                <p>Không gian cộng đồng & Nghề bốc thuốc cổ truyền</p>
+                            </li>
+                            <li class="map-location-item" data-spot="hop-nhat">
+                                <h5>📜 Thôn Hợp Nhất (Bảo Tồn Chữ Nôm)</h5>
+                                <p>Địa điểm lưu giữ sách cổ & truyền dạy dân ca Dao</p>
+                            </li>
+                            <li class="map-location-item" data-spot="hop-son">
+                                <h5>🌿 Thôn Hợp Sơn (Vườn Thảo Dược)</h5>
+                                <p>Khu vực trải nghiệm sinh thái & thêu thổ cẩm</p>
+                            </li>
+                            <li class="map-location-item" data-spot="nha-van-hoa">
+                                <h5>🏛️ Nhà Văn Hóa Dân Tộc Dao</h5>
+                                <p>Địa điểm tổ chức đại lễ & sinh hoạt chung</p>
+                            </li>
+                            <li class="map-location-item" data-spot="vqg-bavi">
+                                <h5>🌲 Vườn Quốc Gia Ba Vì</h5>
+                                <p>Không gian tự nhiên linh thiêng gắn liền lịch sử</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="map-view-box">
+                        <div id="bavi-heritage-map"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             8. QR – KẾT NỐI TƯ LIỆU
+             ============================================================ -->
+        <section id="qr" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Công nghệ số kết nối nhanh</span>
+                    <h2>Mã QR – Kết Nối Tư Liệu Số</h2>
+                    <p>Quét mã QR bằng điện thoại thông minh để truy cập tức thì từng chuyên mục tư liệu, hoặc tải mã QR về để in ấn vào tài liệu học tập của nhà trường.</p>
+                </div>
+
+                <div class="qr-grid">
+                    <div class="qr-card" data-target="repository">
+                        <div class="qr-code-wrap">
+                            <img class="qr-img" alt="QR Từ vựng tiếng Dao">
+                        </div>
+                        <h4>QR 01 – Từ Vựng Tiếng Dao</h4>
+                        <p>Tra cứu nhanh từ điển bỏ túi và nghe phát âm chuẩn xác.</p>
+                        <button class="btn btn-secondary btn-download-qr" style="font-size: 0.8rem; padding: 0.4rem 1rem;">📥 Tải mã QR</button>
+                    </div>
+
+                    <div class="qr-card" data-target="tab-cau-chuyen">
+                        <div class="qr-code-wrap">
+                            <img class="qr-img" alt="QR Câu chuyện văn hóa">
+                        </div>
+                        <h4>QR 02 – Câu Chuyện Văn Hóa</h4>
+                        <p>Lắng nghe ký ức và truyền thuyết của các nghệ nhân cao tuổi.</p>
+                        <button class="btn btn-secondary btn-download-qr" style="font-size: 0.8rem; padding: 0.4rem 1rem;">📥 Tải mã QR</button>
+                    </div>
+
+                    <div class="qr-card" data-target="tab-cap-sac">
+                        <div class="qr-code-wrap">
+                            <img class="qr-img" alt="QR Tư liệu Lễ Cấp Sắc">
+                        </div>
+                        <h4>QR 03 – Tư Liệu Lễ Cấp Sắc</h4>
+                        <p>Xem trọn bộ video 5 bước hành lễ và 10 điều răn đạo đức.</p>
+                        <button class="btn btn-secondary btn-download-qr" style="font-size: 0.8rem; padding: 0.4rem 1rem;">📥 Tải mã QR</button>
+                    </div>
+
+                    <div class="qr-card" data-target="experience">
+                        <div class="qr-code-wrap">
+                            <img class="qr-img" alt="QR Hoạt động trải nghiệm">
+                        </div>
+                        <h4>QR 04 – Góc Trải Nghiệm</h4>
+                        <p>Khám phá và gửi nhật ký học tập văn hóa của học sinh.</p>
+                        <button class="btn btn-secondary btn-download-qr" style="font-size: 0.8rem; padding: 0.4rem 1rem;">📥 Tải mã QR</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             9. THƯ VIỆN HÌNH ẢNH & ÂM THANH
+             ============================================================ -->
+        <section id="media" class="section" style="background: rgba(0,0,0,0.25);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Kho lưu trữ đa phương tiện</span>
+                    <h2>Thư Viện Hình Ảnh & Âm Thanh</h2>
+                    <p>Tổng hợp các tư liệu ảnh, video, bản ghi âm và tài liệu nghiên cứu đã được số hóa với metadata chuẩn xác.</p>
+                </div>
+
+                <div class="media-filter-bar">
+                    <button class="media-filter-btn active" data-type="all">Tất cả tư liệu</button>
+                    <button class="media-filter-btn" data-type="image">📸 Hình ảnh</button>
+                    <button class="media-filter-btn" data-type="video">🎥 Video tư liệu</button>
+                    <button class="media-filter-btn" data-type="audio">🎧 Bản ghi âm</button>
+                    <button class="media-filter-btn" data-type="doc">📄 Tài liệu nghiên cứu</button>
+                </div>
+
+                <div class="media-gallery-grid">
+                    <!-- Media Item 1 -->
+                    <div class="media-item-card" data-type="image">
+                        <div class="media-thumbnail-wrap">
+                            <img src="IMG/Lễ cấp sắc/z4908789723746_f074a9c0dcc9478008551d8f4287a360.jpg" alt="Nghi thức Soi Đèn">
+                            <span class="media-type-badge">Hình ảnh</span>
+                        </div>
+                        <div class="media-meta-box">
+                            <div class="media-title">Nghi thức Soi Đèn Lễ Cấp Sắc</div>
+                            <div class="media-desc">Thầy cúng thực hiện nghi lễ soi đèn khai sáng tâm trí cho người thụ lễ tại thôn Hợp Nhất.</div>
+                            <div class="media-specs">
+                                <span>📌 <strong>Nguồn:</strong> Nhóm nghiên cứu dự án</span>
+                                <span>📅 <strong>Ngày số hóa:</strong> 06/10/2026</span>
+                                <span>🔒 <strong>Quyền sử dụng:</strong> Giáo dục phi thương mại</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Media Item 2 -->
+                    <div class="media-item-card" data-type="video">
+                        <div class="media-thumbnail-wrap">
+                            <img src="IMG/Người dao/nhipsonghanoi.hanoimoi.com.vn-uploads-images-nguyenmai-2023-04-09-_cap-sac-4-.jpg" alt="Video Nghi thức Hạ Đài">
+                            <span class="media-type-badge">Video tư liệu</span>
+                        </div>
+                        <div class="media-meta-box">
+                            <div class="media-title">Trích đoạn Nghi thức Hạ Đài 3 mét</div>
+                            <div class="media-desc">Thử thách bản lĩnh rơi tự do thể hiện sự trưởng thành và tái sinh của người thụ lễ.</div>
+                            <div class="media-specs">
+                                <span>📌 <strong>Nguồn:</strong> Tư liệu cộng đồng Ba Vì</span>
+                                <span>📅 <strong>Ngày số hóa:</strong> 06/10/2026</span>
+                                <span>🔒 <strong>Quyền sử dụng:</strong> Được sự đồng thuận của dòng họ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Media Item 3 -->
+                    <div class="media-item-card" data-type="image">
+                        <div class="media-thumbnail-wrap">
+                            <img src="IMG/Người dao/lang-nghe-thuoc-nam-nguoi-dao-ba-vi-1707-1-1616.jpg" alt="Làng nghề Thuốc Nam">
+                            <span class="media-type-badge">Hình ảnh</span>
+                        </div>
+                        <div class="media-meta-box">
+                            <div class="media-title">Chế biến Thảo Dược Nam Ba Vì</div>
+                            <div class="media-desc">Bà con thôn Yên Sơn phân loại các loại lá thuốc thu hái tự nhiên từ sườn núi Ba Vì.</div>
+                            <div class="media-specs">
+                                <span>📌 <strong>Nguồn:</strong> Hợp tác xã Thuốc nam Ba Vì</span>
+                                <span>📅 <strong>Ngày số hóa:</strong> 06/10/2026</span>
+                                <span>🔒 <strong>Quyền sử dụng:</strong> Công khai</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Media Item 4 -->
+                    <div class="media-item-card" data-type="audio">
+                        <div class="media-thumbnail-wrap">
+                            <img src="IMG/Người dao/hanoimoi.com.vn-uploads-images-phananh-2020-01-21-_tet-nhay-nguoi-dao.jpg" alt="Bản ghi âm tiếng Dao">
+                            <span class="media-type-badge">Bản ghi âm</span>
+                        </div>
+                        <div class="media-meta-box">
+                            <div class="media-title">Phát âm 50 Mẫu Câu Giao Tiếp Dao Quần Chẹt</div>
+                            <div class="media-desc">Giọng đọc chuẩn của các già làng giúp học sinh luyện phát âm ngữ điệu chuẩn xác.</div>
+                            <div class="media-specs">
+                                <span>📌 <strong>Nguồn:</strong> Bản ghi âm thực địa dự án</span>
+                                <span>📅 <strong>Ngày số hóa:</strong> 06/10/2026</span>
+                                <span>🔒 <strong>Quyền sử dụng:</strong> Mở rộng cho cộng đồng</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Media Item 5 -->
+                    <div class="media-item-card" data-type="doc">
+                        <div class="media-thumbnail-wrap">
+                            <img src="IMG/Người dao/15.jpeg" alt="Tài liệu nghiên cứu">
+                            <span class="media-type-badge">Tài liệu số hóa</span>
+                        </div>
+                        <div class="media-meta-box">
+                            <div class="media-title">Báo Cáo Nghiên Cứu Giáo Dục Di Sản Ngôn Ngữ</div>
+                            <div class="media-desc">Tài liệu tổng hợp thực trạng ngôn ngữ và mô hình giải pháp bảo tồn tiếng Dao tại THPT Ba Vì.</div>
+                            <div class="media-specs">
+                                <span>📌 <strong>Nguồn:</strong> Nhóm nghiên cứu THPT Ba Vì</span>
+                                <span>📅 <strong>Ngày số hóa:</strong> 06/10/2026</span>
+                                <span>🔒 <strong>Quyền sử dụng:</strong> Bản quyền tác giả</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             10. ĐÓNG GÓP TƯ LIỆU
+             ============================================================ -->
+        <section id="contribute" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Chung tay bảo tồn di sản</span>
+                    <h2>Đóng Góp Tư Liệu Văn Hóa</h2>
+                    <p>Bạn có câu chuyện, hình ảnh, băng ghi âm hoặc tư liệu văn hóa quý giá của người Dao muốn chia sẻ cùng cộng đồng?</p>
+                </div>
+
+                <!-- Quy trình tiếp nhận 5 bước minh bạch -->
+                <div class="contribution-workflow">
+                    <div class="workflow-node">
+                        <div class="workflow-node-num">1</div>
+                        <h5>Gửi Tư Liệu</h5>
+                        <p>Điền thông tin và tải tư liệu qua form</p>
+                    </div>
+                    <div class="workflow-node">
+                        <div class="workflow-node-num">2</div>
+                        <h5>Tiếp Nhận</h5>
+                        <p>Nhóm nghiên cứu tiếp nhận hồ sơ</p>
+                    </div>
+                    <div class="workflow-node">
+                        <div class="workflow-node-num">3</div>
+                        <h5>Xác Minh</h5>
+                        <p>Kiểm tra nguồn gốc & bản quyền cộng đồng</p>
+                    </div>
+                    <div class="workflow-node">
+                        <div class="workflow-node-num">4</div>
+                        <h5>Xin Phép</h5>
+                        <p>Ký cam kết bản quyền sử dụng</p>
+                    </div>
+                    <div class="workflow-node">
+                        <div class="workflow-node-num">5</div>
+                        <h5>Số Hóa & Đưa Vào Kho</h5>
+                        <p>Lưu trữ và công khai trên website</p>
+                    </div>
+                </div>
+
+                <!-- Form gửi tư liệu -->
+                <div class="contribution-form-wrap glass-card">
+                    <form id="contribute-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="cb-name">Họ và tên của bạn *</label>
+                                <input type="text" id="cb-name" class="form-control" placeholder="Nhập họ và tên..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cb-phone">Số điện thoại liên hệ *</label>
+                                <input type="tel" id="cb-phone" class="form-control" placeholder="Nhập số điện thoại..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cb-email">Email (Nếu có)</label>
+                                <input type="email" id="cb-email" class="form-control" placeholder="Nhập email...">
+                            </div>
+                            <div class="form-group">
+                                <label for="cb-category">Phân loại tư liệu *</label>
+                                <select id="cb-category" class="form-control" required style="background: #171b22; color: #fff;">
+                                    <option value="Từ vựng & Mẫu câu tiếng Dao">Từ vựng & Mẫu câu tiếng Dao</option>
+                                    <option value="Tư liệu Lễ Cấp sắc">Tư liệu Lễ Cấp sắc</option>
+                                    <option value="Câu chuyện văn hóa / Ký ức">Câu chuyện văn hóa / Ký ức</option>
+                                    <option value="Tri thức thuốc nam & cây cỏ">Tri thức thuốc nam & cây cỏ</option>
+                                    <option value="Ảnh / Video sinh hoạt bản làng">Ảnh / Video sinh hoạt bản làng</option>
+                                    <option value="Khác">Khác</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="cb-title">Tiêu đề tư liệu đóng góp *</label>
+                                <input type="text" id="cb-title" class="form-control" placeholder="VD: Ghi âm bài hát ru tiếng Dao Quần Chẹt của bà nội" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="cb-desc">Mô tả chi tiết nội dung & nguồn gốc tư liệu *</label>
+                                <textarea id="cb-desc" class="form-control" placeholder="Nêu rõ bối cảnh thu thập, người kể, thôn bản sinh sống và ý nghĩa của tư liệu..." required></textarea>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="cb-image">Tệp hình ảnh / tài liệu đính kèm (Nếu có)</label>
+                                <input type="file" id="cb-image" accept="image/*,.pdf,.doc,.docx" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="cb-permission" required>
+                            <label for="cb-permission">
+                                Tôi cam kết tư liệu trên là xác thực, không vi phạm các điều cấm kỵ tâm linh của cộng đồng người Dao và đồng ý để nhóm nghiên cứu liên hệ thẩm định nhằm số hóa phục vụ mục đích giáo dục di sản phi thương mại.
+                            </label>
+                        </div>
+
+                        <button type="submit" id="cb-submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">🚀 Gửi Tư Liệu Đóng Góp</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h4>Tiếng Dao – Kết Nối Di Sản</h4>
+                    <p>Dự án số hóa và bảo tồn ngôn ngữ, văn hóa dân tộc Dao Quần Chẹt tại Ba Vì. Hướng đến một môi trường trao truyền di sản sống động từ gia đình đến trường học và cộng đồng.</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Chuyên Mục</h5>
+                    <ul>
+                        <li><a href="#about">Về dự án</a></li>
+                        <li><a href="#repository">Kho tư liệu số</a></li>
+                        <li><a href="#family">Tiếng Dao gia đình</a></li>
+                        <li><a href="#keepers">Người giữ tri thức</a></li>
+                        <li><a href="#map">Bản đồ di sản</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Liên Hệ & Đóng Góp</h5>
+                    <ul>
+                        <li>📍 Xã Ba Vì, Huyện Ba Vì, TP. Hà Nội</li>
+                        <li>📧 contact@tiengdaobavi.edu.vn</li>
+                        <li><a href="#contribute">Gửi tư liệu di sản</a></li>
+                        <li><a href="#experience">Góc trải nghiệm học sinh</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dự án "Tiếng Dao – Kết nối di sản". Bản quyền số hóa thuộc về nhóm nghiên cứu & cộng đồng người Dao Ba Vì.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- App Logic -->
+    <script src="app.js"></script>
+    <!-- Google Translate Support -->
+    <script src="translate.js"></script>
+</body>
+</html>

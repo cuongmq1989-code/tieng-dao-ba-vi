@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Hướng Dẫn Viên Miễn Phí - Di Sản Số Ba Vì</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .register-container {
+            padding: 10rem 1rem 5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .form-header h2 {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+        .form-header p {
+            color: var(--light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+            font-weight: 600;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 10px rgba(212, 163, 115, 0.2);
+        }
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--secondary);
+            color: var(--dark);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .btn-submit:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
+        }
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+        .back-home {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Modal Alert */
+        .alert-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .alert-content {
+            background: var(--dark);
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid var(--secondary);
+            max-width: 400px;
+            animation: popIn 0.3s ease-out;
+        }
+        .alert-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .alert-content h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        .alert-content p {
+            color: var(--light);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+        .btn-close-alert {
+            padding: 10px 30px;
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header id="main-header" class="scrolled">
+        <nav class="container">
+            <div class="logo">
+                <h1>Ba Vi <span>Digital</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="index.html#heritage">Di sản</a></li>
+                <li><a href="index.html#culture">Văn hóa</a></li>
+                <li><a href="index.html#luu-niem">Lưu Niệm Số</a></li>
+                <li><a href="dang-ky-hdv.html" class="btn-primary">Đăng ký HDV miễn phí</a></li>
+                <li>
+                    <div class="lang-switcher">
+                        <a id="lang-vn" class="lang-btn active">VN</a>
+                        <a id="lang-en" class="lang-btn">EN</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="register-container">
+        <a href="index.html" class="back-home">← Quay lại trang chủ</a>
+        
+        <div class="form-card">
+            <div class="form-header">
+                <h2>Đăng Ký Hướng Dẫn Viên</h2>
+                <p>Khám phá Ba Vì trọn vẹn hơn với đội ngũ hướng dẫn viên bản địa miễn phí, nhiệt tình và am hiểu văn hóa.</p>
+            </div>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="fullName">Họ và Tên</label>
+                    <input type="text" id="fullName" class="form-control" placeholder="Nhập họ và tên của bạn" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="visitorCount">Số người đăng ký tham quan</label>
+                    <input type="number" id="visitorCount" class="form-control" placeholder="Ví dụ: 5" min="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Số điện thoại liên hệ</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Nhập số điện thoại" required>
+                </div>
+                
+                <button type="submit" class="btn-submit">ĐĂNG KÝ NGAY</button>
+            </form>
+        </div>
+    </main>
+
+    <div id="successAlert" class="alert-modal">
+        <div class="alert-content">
+            <span class="alert-icon">✅</span>
+            <h3>Đăng ký thành công!</h3>
+            <p>Thông tin của bạn đã được ghi nhận. Vui lòng chờ hướng dẫn viên gọi điện xác nhận trong thời gian sớm nhất.</p>
+            <button class="btn-close-alert" onclick="closeAlert()">Đóng</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Di sản số Ba Vì. Design by THPT Minh Quang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault(); // Ngăn form tự động tải lại trang
+            
+            const btn = document.querySelector('.btn-submit');
+            const originalText = btn.textContent;
+            btn.textContent = 'Đang xử lý...';
+            btn.disabled = true;
+
+            const fullName = document.getElementById('fullName').value;
+            const visitorCount = document.getElementById('visitorCount').value;
+            const phone = document.getElementById('phone').value;
+
+            try {
+                // Gọi API backend
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ fullName, visitorCount, phone })
+                });
+
+                if (response.ok) {
+                    // Hiện popup thông báo
+                    document.getElementById('successAlert').style.display = 'flex';
+                    // Reset form
+                    document.getElementById('registerForm').reset();
+                } else {
+                    alert('Có lỗi xảy ra, vui lòng chạy Server Backend (node server.js)');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Không thể kết nối đến máy chủ. Bạn đã chạy lệnh "node server.js" chưa?');
+            } finally {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        });
+
+        function closeAlert() {
+            document.getElementById('successAlert').style.display = 'none';
+        }
+    </script>
+    <script src="translate.js"></script>
+</body>
+</html>
